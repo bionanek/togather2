@@ -1,5 +1,5 @@
-import { Text } from 'react-native';
+import { Text } from "react-native";
 
 export default function Page() {
-  return <Text>Home page</Text>;
+  return <Text>Fookin Home page innit</Text>;
 }
