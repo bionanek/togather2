@@ -1,6 +1,7 @@
 import React from "react";
 import { IconButton, Searchbar } from "react-native-paper";
 import { StyleSheet, Text, View } from "react-native";
+import { Link, Stack } from "expo-router";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -9,6 +10,20 @@ export default function Home() {
 
   return (
     <View style={styles.page}>
+      <Stack.Screen options={{ headerShown: true, title: "Home" }} />
+      <View style={styles.jakubBringJakue}>
+        <Text>You wanna test navigating with route parameters? Aight!</Text>
+        <Text>
+          Pressie pressie them links below. Come on now mate! It's bloody fun,
+          innit!{" "}
+        </Text>
+        <Link href="/Profile/bobOne" style={{ fontWeight: "600" }}>
+          Go to user 'bobOne'
+        </Link>
+        <Link href="/Profile/bobTwo" style={{ fontWeight: "600" }}>
+          Go to user 'bobTwo'
+        </Link>
+      </View>
       <View style={styles.userContainer}>
         <View style={styles.smallerUserContainer}>
           <Text style={styles.userGreeting}>Hello</Text>
@@ -35,6 +50,7 @@ const styles = StyleSheet.create({
     margin: 20,
     flexDirection: "column",
   },
+  jakubBringJakue: {},
   userContainer: {
     flexDirection: "row",
   },
