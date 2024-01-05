@@ -9,7 +9,7 @@ export default function UserDetails() {
       <Text>user is {userId}</Text>
       <Link href="/Profile" asChild>
         <Pressable>
-          <Text>Back to main profile page</Text>
+          <Text style={{ fontWeight: "600" }}>Back to main profile page</Text>
         </Pressable>
       </Link>
     </View>
