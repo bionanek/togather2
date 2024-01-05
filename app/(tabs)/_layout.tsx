@@ -14,6 +14,27 @@ export default function TabsLayout() {
           title: "Explore",
         }}
       />
+      <Tabs.Screen
+        name="CreateEvent"
+        options={{
+          tabBarLabel: "Create Event",
+          title: "Create Event",
+        }}
+      />
+      <Tabs.Screen
+        name="Profile"
+        options={{
+          tabBarLabel: "Profile",
+          title: "Profile",
+        }}
+      />
+      <Tabs.Screen
+        name="Notifications"
+        options={{
+          tabBarLabel: "Notifications",
+          title: "Notifications",
+        }}
+      />
     </Tabs>
   );
 }
