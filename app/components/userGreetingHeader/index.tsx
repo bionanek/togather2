@@ -2,6 +2,10 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ProfilePageIcon from "../../../assets/NavigationIcons/profile-page-icon.svg";
 
+{
+  /* TODO: Move colours externally */
+}
+
 export default function UserGreetingHeader() {
   return (
     <View style={styles.userContainer}>

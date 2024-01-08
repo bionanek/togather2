@@ -5,6 +5,8 @@
         "node_modules"
     ],
     "words": [
-        "searchbar", "Pressable"
+        "colours",
+        "Pressable",
+        "searchbar"
     ]
 }

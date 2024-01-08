@@ -3,11 +3,19 @@ import { Searchbar } from "react-native-paper";
 import { StyleSheet, Text, View } from "react-native";
 import { Link, Stack } from "expo-router";
 import UserGreetingHeader from "../../components/userGreetingHeader";
+import DynamicComponentSwitcher from "../../components/tabSelector";
+import Sport from "./sport";
+import Projects from "./projects";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = React.useState("");
 
   const onChangeSearch = (query) => setSearchQuery(query);
+
+  const tabSelectorItems = [
+    { title: "Sport", component: <Sport /> },
+    { title: "Projects", component: <Projects /> },
+  ];
 
   return (
     <View style={styles.page}>
@@ -31,6 +39,8 @@ export default function Home() {
         onChangeText={onChangeSearch}
         value={searchQuery}
       />
+      {/* TODO: add search bar icon */}
+      <DynamicComponentSwitcher tabSelectorItems={tabSelectorItems} />
     </View>
   );
 }
