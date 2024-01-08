@@ -1,13 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { MD3LightTheme as DefaultTheme, PaperProvider } from 'react-native-paper';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import {
+  MD3LightTheme as DefaultTheme,
+  PaperProvider,
+} from "react-native-paper";
 
 const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: 'orange',
-    secondary: 'yellow',
+    primary: "#FF0000",
+    secondary: "#00FF00",
   },
 };
 
@@ -25,8 +28,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

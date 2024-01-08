@@ -32,6 +32,8 @@ export default function DynamicComponentSwitcher({ tabSelectorItems }) {
 }
 
 const styles = StyleSheet.create({
-  tabSelector: {},
+  tabSelector: {
+    flexDirection: "row",
+  },
   tabContent: {},
 });
