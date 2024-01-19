@@ -8,12 +8,24 @@ import ContentFilter from "../../components/contentFilter/ContentFilter";
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
 
+  //add type restrictions for this
   const filterCategories: string[] = ["Sport", "Projects"];
 
   return (
     <View style={styles.pageContainer}>
-      <Stack.Screen options={{ headerShown: true, title: "Home" }} />
-      <View>
+      <Stack.Screen options={{ headerShown: false, title: "Home" }} />
+      <UserGreetingHeader />
+      <Searchbar
+        placeholder="Search"
+        onChangeText={setSearchQuery}
+        value={searchQuery}
+      />
+      {/* TODO: add search bar icon */}
+      {filterCategories?.length > 0 ? (
+        <ContentFilter categories={filterCategories} initialCategory="" />
+      ) : null}
+
+      <View style={styles.routeParamNav}>
         <Text>You wanna test navigating with route parameters? Aight!</Text>
         <Text>
           Pressie pressie them links below. Come on now mate! It's bloody fun,
@@ -26,23 +38,18 @@ export default function Home() {
           Go to user 'bobTwo'
         </Link>
       </View>
-      <UserGreetingHeader />
-      <Searchbar
-        placeholder="Search"
-        onChangeText={setSearchQuery}
-        value={searchQuery}
-      />
-      {/* TODO: add search bar icon */}
-      {filterCategories?.length > 0 ? (
-        <ContentFilter categories={filterCategories} />
-      ) : null}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   pageContainer: {
-    margin: 20,
+    //add safe space and padding in generic place for whole app instead
+    margin: 30,
+    marginTop: 70,
     flexDirection: "column",
   },
+  routeParamNav: {
+    marginTop: 30,
+  }
 });

@@ -3,13 +3,13 @@ import { Text, StyleSheet, View, Button } from "react-native";
 import EventList from "../events/eventList/EventList";
 
 type ContentFilterProps = {
-  initialCategory?: string;
   categories: string[];
+  initialCategory?: string;
 };
 
 export default function ContentFilter({
-  initialCategory,
   categories,
+  initialCategory,
 }: ContentFilterProps) {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
 
@@ -27,7 +27,7 @@ export default function ContentFilter({
 
       <View style={styles.tabContent}>
         <Text>selected category: {selectedCategory}</Text>
-        {<EventList eventIds={[1, 2, 3]} />}
+        {<EventList selectedCategory={selectedCategory} />}
       </View>
     </View>
   );
