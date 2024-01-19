@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { Text, StyleSheet, View, Button } from "react-native";
 
-export default function DynamicComponentSwitcher({ tabSelectorItems }) {
-  const [selectedTitle, setSelectedTitle] = useState(tabSelectorItems[0].title);
+type DynamicComponentSwitcherProps = {
+  tabSelectorItems: TabSelectorItemType[];
+};
 
-  const selectComponent = (title) => {
-    setSelectedTitle(title);
-  };
+export type TabSelectorItemType = {
+  title: string;
+  component: React.ReactNode;
+};
+
+export default function DynamicComponentSwitcher({
+  tabSelectorItems,
+}: DynamicComponentSwitcherProps) {
+  const [selectedTitle, setSelectedTitle] = useState(tabSelectorItems[0].title);
 
   return (
     <View>
@@ -15,7 +22,7 @@ export default function DynamicComponentSwitcher({ tabSelectorItems }) {
           <Button
             key={item.title}
             title={item.title}
-            onPress={() => selectComponent(item.title)}
+            onPress={() => setSelectedTitle(item.title)}
           />
         ))}
       </View>

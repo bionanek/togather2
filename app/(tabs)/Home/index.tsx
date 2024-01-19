@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { Searchbar } from "react-native-paper";
 import { StyleSheet, Text, View } from "react-native";
 import { Link, Stack } from "expo-router";
-import UserGreetingHeader from "../../components/userGreetingHeader/UserGreetingHeader";
-import DynamicComponentSwitcher from "../../components/tabSelector";
 import Sport from "./sport";
 import Projects from "./projects";
+import UserGreetingHeader from "../../components/userGreetingHeader/UserGreetingHeader";
+import DynamicComponentSwitcher, {
+  TabSelectorItemType,
+} from "../../components/dynamicComponentSwitcher/dynamicComponentSwitcher";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const tabSelectorItems = [
+  const tabSelectorItems: TabSelectorItemType[] = [
     { title: "Sport", component: <Sport /> },
     { title: "Projects", component: <Projects /> },
   ];
@@ -38,7 +40,9 @@ export default function Home() {
         value={searchQuery}
       />
       {/* TODO: add search bar icon */}
-      <DynamicComponentSwitcher tabSelectorItems={tabSelectorItems} />
+      {tabSelectorItems?.length > 0 ? (
+        <DynamicComponentSwitcher tabSelectorItems={tabSelectorItems} />
+      ) : null}
     </View>
   );
 }
