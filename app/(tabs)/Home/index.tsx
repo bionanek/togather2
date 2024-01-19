@@ -6,13 +6,13 @@ import Sport from "./sport";
 import Projects from "./projects";
 import UserGreetingHeader from "../../components/userGreetingHeader/UserGreetingHeader";
 import DynamicComponentSwitcher, {
-  TabSelectorItemType,
+  DynamicComponentSwitcherTabType,
 } from "../../components/dynamicComponentSwitcher/dynamicComponentSwitcher";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const tabSelectorItems: TabSelectorItemType[] = [
+  const tabSelectorItems: DynamicComponentSwitcherTabType[] = [
     { title: "Sport", component: <Sport /> },
     { title: "Projects", component: <Projects /> },
   ];

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Text, StyleSheet, View, Button } from "react-native";
 
 type DynamicComponentSwitcherProps = {
-  tabSelectorItems: TabSelectorItemType[];
+  tabSelectorItems: DynamicComponentSwitcherTabType[];
 };
 
-export type TabSelectorItemType = {
+export type DynamicComponentSwitcherTabType = {
   title: string;
   component: React.ReactNode;
 };
