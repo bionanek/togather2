@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Searchbar } from "react-native-paper";
 import { StyleSheet, Text, View } from "react-native";
 import { Link, Stack } from "expo-router";
-import UserGreetingHeader from "../../components/userGreetingHeader";
+import UserGreetingHeader from "../../components/userGreetingHeader/UserGreetingHeader";
 import DynamicComponentSwitcher from "../../components/tabSelector";
 import Sport from "./sport";
 import Projects from "./projects";
 
 export default function Home() {
-  const [searchQuery, setSearchQuery] = React.useState("");
-
-  const onChangeSearch = (query) => setSearchQuery(query);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const tabSelectorItems = [
     { title: "Sport", component: <Sport /> },
@@ -18,9 +16,9 @@ export default function Home() {
   ];
 
   return (
-    <View style={styles.page}>
+    <View style={styles.pageContainer}>
       <Stack.Screen options={{ headerShown: true, title: "Home" }} />
-      <View style={styles.jakubBringJakue}>
+      <View>
         <Text>You wanna test navigating with route parameters? Aight!</Text>
         <Text>
           Pressie pressie them links below. Come on now mate! It's bloody fun,
@@ -36,7 +34,7 @@ export default function Home() {
       <UserGreetingHeader />
       <Searchbar
         placeholder="Search"
-        onChangeText={onChangeSearch}
+        onChangeText={setSearchQuery}
         value={searchQuery}
       />
       {/* TODO: add search bar icon */}
@@ -46,9 +44,8 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-  page: {
+  pageContainer: {
     margin: 20,
     flexDirection: "column",
   },
-  jakubBringJakue: {},
 });
