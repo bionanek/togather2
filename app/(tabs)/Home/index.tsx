@@ -2,20 +2,13 @@ import React, { useState } from "react";
 import { Searchbar } from "react-native-paper";
 import { StyleSheet, Text, View } from "react-native";
 import { Link, Stack } from "expo-router";
-import Sport from "./sport";
-import Projects from "./projects";
 import UserGreetingHeader from "../../components/userGreetingHeader/UserGreetingHeader";
-import DynamicComponentSwitcher, {
-  DynamicComponentSwitcherTabType,
-} from "../../components/dynamicComponentSwitcher/dynamicComponentSwitcher";
+import ContentFilter from "../../components/contentFilter/ContentFilter";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const tabSelectorItems: DynamicComponentSwitcherTabType[] = [
-    { title: "Sport", component: <Sport /> },
-    { title: "Projects", component: <Projects /> },
-  ];
+  const filterCategories: string[] = ["Sport", "Projects"];
 
   return (
     <View style={styles.pageContainer}>
@@ -40,8 +33,8 @@ export default function Home() {
         value={searchQuery}
       />
       {/* TODO: add search bar icon */}
-      {tabSelectorItems?.length > 0 ? (
-        <DynamicComponentSwitcher tabSelectorItems={tabSelectorItems} />
+      {filterCategories?.length > 0 ? (
+        <ContentFilter categories={filterCategories} />
       ) : null}
     </View>
   );
