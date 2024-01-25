@@ -1,15 +1,22 @@
 import { Stack } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableHighlight } from "react-native-gesture-handler";
+import { CustomButton } from "../components/buttons/CircleIconButton";
 
 export default function EventPage() {
   return (
     <View style={{ marginHorizontal: 30 }}>
       <Stack.Screen options={{ headerShown: false }} />
       <View style={styles.topBar}>
-        <Text>Arrow</Text>
+        <CustomButton
+          onPress={() => console.log("pressed custom")}
+          icon="left-arrow"
+        />
         <Text>Category</Text>
-        <Text>Heart</Text>
+        <CustomButton
+          onPress={() => console.log("pressed custom")}
+          icon="heart"
+        />
       </View>
       <View>
         <Text>The event title thingy</Text>
