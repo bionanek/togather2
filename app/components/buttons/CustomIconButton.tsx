@@ -3,8 +3,9 @@ import { TouchableHighlight } from "react-native-gesture-handler";
 import LeftArrowIcon from "../../../assets/OtherIcons/left-arrow-icon.svg";
 import HeartIcon from "../../../assets/OtherIcons/heart-icon.svg";
 import { Colors } from "../../../assets/Constants/Colors";
+import CategoryBasketballIcon from "../../../assets/CategoryIcons/category-basketball-icon.svg";
 
-type ButtonIcons = "plus" | "left-arrow" | "heart";
+type ButtonIcons = "plus" | "left-arrow" | "heart" | "basketball";
 
 type CustomButtonProps = {
   onPress: () => void;
@@ -14,7 +15,7 @@ type CustomButtonProps = {
   shape?: "circle" | "square";
 };
 
-export function CustomButton({
+export function CustomIconButton({
   onPress,
   enabled: disabled,
   icon,
@@ -28,7 +29,7 @@ export function CustomButton({
       case "heart":
         return <HeartIcon color={"black"} />;
       default:
-        return <LeftArrowIcon color={"black"} />;
+        return <CategoryBasketballIcon color={Colors.Accent} />;
     }
   };
 
@@ -39,9 +40,13 @@ export function CustomButton({
       underlayColor={Colors.DarkerAccentBackground}
       style={styles.buttonContainer}
     >
-      <View>
+      <View style={styles.buttonContentWrapper}>
         {icon ? getChosenIcon(icon) : null}
-        {labelText ? <Text>{labelText}</Text> : null}
+        {labelText ? (
+          <Text style={{ marginLeft: icon ? 5 : 0, fontWeight: "600" }}>
+            {labelText}
+          </Text>
+        ) : null}
       </View>
     </TouchableHighlight>
   );
@@ -52,5 +57,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: Colors.AccentBackground,
     padding: 15,
+  },
+  buttonContentWrapper: {
+    flexDirection: "row",
   },
 });

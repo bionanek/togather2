@@ -1,25 +1,38 @@
 import { Stack } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableHighlight } from "react-native-gesture-handler";
-import { CustomButton } from "../components/buttons/CircleIconButton";
+import { CustomIconButton } from "../components/buttons/CustomIconButton";
+import { Colors } from "../../assets/Constants/Colors";
 
 export default function EventPage() {
   return (
-    <View style={{ marginHorizontal: 30 }}>
+    <View style={styles.pageContainer}>
       <Stack.Screen options={{ headerShown: false }} />
       <View style={styles.topBar}>
-        <CustomButton
+        <CustomIconButton
           onPress={() => console.log("pressed custom")}
           icon="left-arrow"
         />
-        <Text>Category</Text>
-        <CustomButton
+        <CustomIconButton
+          onPress={() => console.log("pressed custom")}
+          icon="basketball"
+          labelText="Sport"
+        />
+        {/* TODO: implement MobX store for event categories and create a
+        useSelectedCategory hook or smth
+         that would return icon and name,
+        that would be then passed to the CustomIconButton in props */}
+        <CustomIconButton
           onPress={() => console.log("pressed custom")}
           icon="heart"
         />
       </View>
       <View>
-        <Text>The event title thingy</Text>
+        <Text numberOfLines={3} style={styles.eventTitle}>
+          The event title thingy that should be too long to be handled by this
+          poor ass component :) The event title thingy that should be too long
+          to be handled by this poor ass component :)
+        </Text>
       </View>
       <View style={styles.userTile}>
         <Text>User tile</Text>
@@ -39,14 +52,17 @@ export default function EventPage() {
       <TouchableHighlight
         style={styles.joinButtonContainer}
         onPress={() => console.log("nicely pressed")}
-        underlayColor={"#E74C3C"}
+        underlayColor={Colors.DarkerAccent}
       >
         <Text style={styles.joinButtonText}>I want to join this event</Text>
       </TouchableHighlight>
       <TouchableHighlight
-        style={[styles.joinButtonContainer, { backgroundColor: "#ECE7E3" }]}
+        style={[
+          styles.joinButtonContainer,
+          { backgroundColor: Colors.AccentBackground },
+        ]}
         onPress={() => console.log("nicely pressed")}
-        underlayColor={"#E74C3C"}
+        underlayColor={Colors.DarkerAccent}
       >
         <Text style={[styles.joinButtonText, { color: "black" }]}>
           Check out other participants
@@ -84,12 +100,17 @@ export default function EventPage() {
 }
 
 const styles = StyleSheet.create({
+  pageContainer: { marginHorizontal: 30 },
   topBar: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     marginTop: 50,
     marginBottom: 20,
+  },
+  eventTitle: {
+    fontWeight: "600",
+    fontSize: 20,
   },
   userTile: {
     marginVertical: 30,
@@ -105,7 +126,7 @@ const styles = StyleSheet.create({
   },
   joinButtonContainer: {
     alignSelf: "center",
-    backgroundColor: "#FD5A26",
+    backgroundColor: Colors.Accent,
     padding: 20,
     width: "100%",
     marginTop: 30,
