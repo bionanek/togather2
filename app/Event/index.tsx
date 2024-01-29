@@ -1,12 +1,17 @@
 import { Stack } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
-import { TouchableHighlight } from "react-native-gesture-handler";
+import { ScrollView, TouchableHighlight } from "react-native-gesture-handler";
 import { CustomIconButton } from "../components/buttons/CustomIconButton";
+
 import { Colors } from "../../assets/Constants/Colors";
+import EventMetadataPanel from "./components/EventMetadataPanel";
 
 export default function EventPage() {
   return (
-    <View style={styles.pageContainer}>
+    <ScrollView
+      style={styles.pageContainer}
+      showsVerticalScrollIndicator={false}
+    >
       <Stack.Screen options={{ headerShown: false }} />
       <View style={styles.topBar}>
         <CustomIconButton
@@ -37,17 +42,8 @@ export default function EventPage() {
       <View style={styles.userTile}>
         <Text>User tile</Text>
       </View>
-      <View style={styles.metadataRow}>
-        <View style={styles.metadataItem}>
-          <Text>Date</Text>
-        </View>
-        <View style={styles.metadataItem}>
-          <Text>People</Text>
-        </View>
-        <View style={styles.metadataItem}>
-          <Text>Dist.</Text>
-        </View>
-      </View>
+
+      <EventMetadataPanel date="17.10" distance={12} participants={4} />
 
       <TouchableHighlight
         style={styles.joinButtonContainer}
@@ -95,7 +91,7 @@ export default function EventPage() {
           </Text>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -114,15 +110,6 @@ const styles = StyleSheet.create({
   },
   userTile: {
     marginVertical: 30,
-  },
-  metadataRow: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginVertical: 20,
-  },
-  metadataItem: {
-    marginHorizontal: 30,
   },
   joinButtonContainer: {
     alignSelf: "center",
@@ -148,6 +135,7 @@ const styles = StyleSheet.create({
   },
   locationContainer: {
     marginTop: 30,
+    marginBottom: 30,
     flexDirection: "column",
     alignItems: "flex-start",
   },

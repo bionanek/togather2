@@ -3,4 +3,5 @@ export const Colors = {
   DarkerAccent:"#E74C3C",
   AccentBackground: "#ECE7E3",
   DarkerAccentBackground: "#DDD4CD",
+  Placeholder: "#B9B9B9"
 }
