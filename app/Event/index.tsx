@@ -1,6 +1,11 @@
 import { Stack } from "expo-router";
-import { View, Text, StyleSheet } from "react-native";
-import { ScrollView, TouchableHighlight } from "react-native-gesture-handler";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableHighlight,
+  ScrollView,
+} from "react-native";
 import { CustomIconButton } from "../components/buttons/CustomIconButton";
 
 import { Colors } from "../../assets/Constants/Colors";

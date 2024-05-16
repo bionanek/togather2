@@ -1,5 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
-import { TouchableHighlight } from "react-native-gesture-handler";
+import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
 import LeftArrowIcon from "../../../assets/OtherIcons/left-arrow-icon.svg";
 import HeartIcon from "../../../assets/OtherIcons/heart-icon.svg";
 import { Colors } from "../../../assets/Constants/Colors";
