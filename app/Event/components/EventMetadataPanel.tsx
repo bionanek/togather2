@@ -3,7 +3,7 @@ import { View, StyleSheet, Text } from "react-native";
 import CalendarIcon from "@icons/OtherIcons/calendar-icon.svg";
 import LocationIcon from "@icons/OtherIcons/location-icon.svg";
 import ProfileIcon from "@icons/OtherIcons/profile-icon.svg";
-import { Colors } from "@constants/Colors";
+import { Colors2G } from "@constants/Colors";
 
 type EventMetadataPanelProps = {
   date: string;
@@ -11,30 +11,30 @@ type EventMetadataPanelProps = {
   distance: number;
 };
 
-export default function EventMetadataPanel({
+export const EventMetadataPanel = ({
   date,
   participants,
   distance,
-}: EventMetadataPanelProps) {
+}: EventMetadataPanelProps) => {
   return (
     <View style={styles.metadataRow}>
       <View style={styles.metadataItem}>
         {/* TODO: implement MobX store for event details and read date, num of participants and distance from it or pass this data as a prop */}
-        <CalendarIcon color={Colors.Placeholder} />
+        <CalendarIcon color={Colors2G.Placeholder} />
         <Text style={styles.metadataItemText}>{date}</Text>
       </View>
       <View style={styles.metadataItem}>
-        <ProfileIcon color={Colors.Placeholder} />
+        <ProfileIcon color={Colors2G.Placeholder} />
         <Text style={styles.metadataItemText}>{participants}</Text>
       </View>
       <View style={styles.metadataItem}>
-        <LocationIcon color={Colors.Placeholder} />
+        <LocationIcon color={Colors2G.Placeholder} />
         <Text style={styles.metadataItemText}>{distance} km</Text>
         {/* TODO: Distance should be checked and converted if necessary  */}
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   metadataRow: {

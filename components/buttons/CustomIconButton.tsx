@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
 import LeftArrowIcon from "@icons/OtherIcons/left-arrow-icon.svg";
 import HeartIcon from "@icons/OtherIcons/heart-icon.svg";
-import { Colors } from "@constants/Colors";
+import { Colors2G } from "@constants/Colors";
 import CategoryBasketballIcon from "@icons/CategoryIcons/category-basketball-icon.svg";
 
 type ButtonIcons = "plus" | "left-arrow" | "heart" | "basketball";
@@ -10,6 +10,8 @@ type CustomButtonProps = {
   onPress: () => void;
   enabled?: boolean;
   labelText?: string;
+
+  /** Name of the icon you want to use. See {@link ButtonIcons} */
   icon?: ButtonIcons;
   iconColor?: string;
   shape?: "circle" | "square";
@@ -18,6 +20,11 @@ type CustomButtonProps = {
 
 const DEFAULT_ICON_COLOR = "black";
 
+/**
+ * This component allows you to create a custom button with an icon and a label.
+ *
+ * You can specify the icon using values from {@link ButtonIcons} type.
+ */
 export function CustomIconButton({
   onPress,
   enabled: disabled,
@@ -44,7 +51,7 @@ export function CustomIconButton({
     <TouchableHighlight
       disabled={disabled}
       onPress={disabled ? undefined : onPress}
-      underlayColor={Colors.DarkerAccentBackground}
+      underlayColor={Colors2G.DarkerAccentBackground}
       style={[
         styles.buttonContainer,
         buttonColor ? { backgroundColor: buttonColor } : null,
@@ -65,7 +72,7 @@ export function CustomIconButton({
 const styles = StyleSheet.create({
   buttonContainer: {
     borderRadius: 50,
-    backgroundColor: Colors.AccentBackground,
+    backgroundColor: Colors2G.AccentBackground,
     padding: 15,
   },
   buttonContentWrapper: {

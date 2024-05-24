@@ -7,11 +7,9 @@ import {
   TouchableHighlight,
   ScrollView,
 } from "react-native";
-import { CustomIconButton } from "../../components/buttons/CustomIconButton";
-
-import { Colors } from "@constants/Colors";
-import EventMetadataPanel from "./components/EventMetadataPanel";
-import { Icon } from "@constants/Icons";
+import { Colors2G } from "@constants/Colors";
+import { EventMetadataPanel } from "@event/components/EventMetadataPanel";
+import { TopBar } from "@event/components/TopBar";
 
 // TODO: use @EventPageProps later, when implementing navigation and passing id from the list
 type EventPageProps = {
@@ -22,34 +20,21 @@ export default function EventPage() {
   const handleOnFavouritePress = () => {
     setIsFavourite(!isFavourite);
   };
+
+  const handleOnBackPress = () => console.log("back pressed");
+
   return (
     <ScrollView
       style={styles.pageContainer}
       showsVerticalScrollIndicator={false}
     >
       <Stack.Screen options={{ headerShown: false }} />
-      <View style={styles.topBar}>
-        <CustomIconButton
-          onPress={() => console.log("pressed custom")}
-          icon={Icon.LeftArrow}
-        />
-        <CustomIconButton
-          onPress={() => console.log("pressed custom")}
-          icon={Icon.Sport}
-          iconColor={Colors.Accent}
-          labelText="Sport"
-        />
-        {/* TODO: implement MobX store for event categories and create a
-        useSelectedCategory hook or smth
-         that would return icon and name,
-        that would be then passed to the CustomIconButton in props */}
-        <CustomIconButton
-          onPress={handleOnFavouritePress}
-          icon={Icon.Heart}
-          iconColor={isFavourite ? "white" : "black"}
-          buttonColor={isFavourite ? Colors.Accent : Colors.AccentBackground}
-        />
-      </View>
+      <TopBar
+        eventCategory="Sport"
+        isFavourite={isFavourite}
+        onFavouritePress={handleOnFavouritePress}
+        onBackButtonPress={handleOnBackPress}
+      />
       <View>
         <Text numberOfLines={3} style={styles.eventTitle}>
           The event title thingy that should be too long to be handled by this
@@ -66,17 +51,17 @@ export default function EventPage() {
       <TouchableHighlight
         style={styles.joinButtonContainer}
         onPress={() => console.log("nicely pressed")}
-        underlayColor={Colors.DarkerAccent}
+        underlayColor={Colors2G.DarkerAccent}
       >
         <Text style={styles.joinButtonText}>I want to join this event</Text>
       </TouchableHighlight>
       <TouchableHighlight
         style={[
           styles.joinButtonContainer,
-          { backgroundColor: Colors.AccentBackground },
+          { backgroundColor: Colors2G.AccentBackground },
         ]}
         onPress={() => console.log("nicely pressed")}
-        underlayColor={Colors.DarkerAccent}
+        underlayColor={Colors2G.DarkerAccent}
       >
         <Text style={[styles.joinButtonText, { color: "black" }]}>
           Check out other participants
@@ -94,16 +79,7 @@ export default function EventPage() {
       </View>
       <View style={styles.locationContainer}>
         <Text style={styles.locationTitle}>Location</Text>
-        <View
-          style={{
-            width: "100%",
-            height: 200,
-            backgroundColor: "black",
-            borderRadius: 12,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <View style={styles.mapContainer}>
           <Text style={{ color: "white", fontSize: 25, fontWeight: "600" }}>
             This is MAP
           </Text>
@@ -115,13 +91,7 @@ export default function EventPage() {
 
 const styles = StyleSheet.create({
   pageContainer: { marginHorizontal: 30 },
-  topBar: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: 50,
-    marginBottom: 20,
-  },
+
   eventTitle: {
     fontWeight: "600",
     fontSize: 20,
@@ -131,7 +101,7 @@ const styles = StyleSheet.create({
   },
   joinButtonContainer: {
     alignSelf: "center",
-    backgroundColor: Colors.Accent,
+    backgroundColor: Colors2G.Accent,
     padding: 20,
     width: "100%",
     marginTop: 30,
@@ -160,5 +130,13 @@ const styles = StyleSheet.create({
   locationTitle: {
     fontWeight: "600",
     marginBottom: 10,
+  },
+  mapContainer: {
+    width: "100%",
+    height: 200,
+    backgroundColor: "black",
+    borderRadius: 12,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

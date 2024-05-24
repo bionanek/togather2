@@ -4,10 +4,11 @@ import ExplorePageIcon from "@icons/NavigationIcons/explore-page-icon.svg";
 import CreateEventPageIcon from "@icons/NavigationIcons/create-event-page-icon.svg";
 import ProfilePageIcon from "@icons/NavigationIcons/profile-page-icon.svg";
 import NotificationsPageIcon from "@icons/NavigationIcons/notifications-page-icon.svg";
-import { Colors } from "@constants/Colors";
+import { Colors2G } from "@constants/Colors";
 
 export default function TabsLayout() {
-  const iconColor = (focused: boolean) => (focused ? Colors.Accent : "#F2F2F2");
+  const iconColor = (focused: boolean) =>
+    focused ? Colors2G.Accent : "#F2F2F2";
   return (
     <Tabs
       screenOptions={{
