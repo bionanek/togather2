@@ -17,7 +17,7 @@ type TopBarProps = {
  * Contains a back button, category button and favourite button spread across the screen using `justifyContent: "space-between"`.
  * @param {object} props - Component props
  */
-export const TopBar = ({
+export const TopBar: React.FC<TopBarProps> = ({
   eventCategory,
   isFavourite,
   onFavouritePress,
