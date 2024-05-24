@@ -5,7 +5,9 @@
     "baseUrl": ".",
     "paths": {
       "@icons/*": ["assets/Icons/*"],
-      "@constants/*": ["constants/*"]
+      "@constants/*": ["constants/*"],
+      "@components/*": ["components/*"],
+      "@event/*": ["app/Event/*"]
     }
   },
   "include": [
