@@ -6,6 +6,7 @@ import { TopBar } from "@event/components/TopBar";
 import CTAButton from "@event/components/CTAButton";
 import UserProfileEventTile from "@event/components/UserProfileEventTile";
 import EventLocation from "./components/EventLocation";
+import { StatusBar } from "expo-status-bar";
 
 // TODO: use @EventPageProps later, when implementing navigation and passing id from the list
 type EventPageProps = {
@@ -19,8 +20,7 @@ type EventData = {
   date: string;
 };
 const eventData: EventData = {
-  title:
-    "The event title thingy that should be too long to be handled by this poor ass component :) The event title thingy that should be too long to be handled by this poor ass component :)",
+  title: "Just chilling with bunch of randoms for fun",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut suscipit ante, in posuere lorem. Pellentesque pellentesque metus velit, a rhoncus enim varius vitae. Pellentesque a feugiat tortor. Phasellus ornare nisi sada, porta justo ac, faucibus ipsum. Nam tempor varius odio id tempor. Suspendisse potenti",
   noOfParticipants: 4,
@@ -45,6 +45,7 @@ export default function EventPage() {
       style={styles.pageContainer}
       showsVerticalScrollIndicator={false}
     >
+      <StatusBar style="dark" />
       <Stack.Screen options={{ headerShown: false }} />
       <TopBar
         eventCategory="Sport"
@@ -57,7 +58,14 @@ export default function EventPage() {
           {eventData.title}
         </Text>
       </View>
-      <UserProfileEventTile />
+      <UserProfileEventTile
+        user={{
+          name: "Amelia Kowalska",
+          profileImage:
+            "https://s3-alpha-sig.figma.com/img/30b9/40a6/27dca9d0eb5704ffc2fb2d5c8aa7909e?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MOwz7oi1cItoGTEUngIRX~yldVqlXOXve5Bh7ASUphoyshnacVMqi6nKvHcFpflB9rWvr~rn5~F0BhBTSI4lYNFZip1f~YJvEqi0LzfLSkngy6C1ro2ChtW-7onnTdD00ge6Qvzg4IxVuwfQ0kZoTtGUqfDBFXIL4UcNU60z7bwD4ORMxlap0eCncI8XEeO1HIYsCrfT-bZmJn2UKca7ZZMmaFwQ7RG1aJjCybuISINAcZPvamDuvdAGwo0MjpNlCKaxV8c2yzm4ReoUVpxp3De4q9bYzjZjKGAw2xvQoz1OkpfO1VPB6W1I3Qbq5sb5CHKTU6fMFMCGZy6zAghqzA__",
+          rating: 4.5,
+        }}
+      />
 
       <EventMetadataPanel
         date={eventData.date}
@@ -81,11 +89,11 @@ export default function EventPage() {
 }
 
 const styles = StyleSheet.create({
-  pageContainer: { marginHorizontal: 30 },
+  pageContainer: { marginHorizontal: 28 },
 
   eventTitle: {
     fontWeight: "600",
-    fontSize: 20,
+    fontSize: 19,
   },
 
   descriptionContainer: {

@@ -1,18 +1,30 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-
+import { View, Text, StyleSheet, Image } from "react-native";
+import { User } from "@event/types/User";
+import StarIcon from "@icons/OtherIcons/star-icon.svg";
+import { Colors2G } from "@constants/Colors";
 interface UserProfileEventTileProps {
-  // Define the props for your component here
+  user: User;
 }
 
-const UserProfileEventTile: React.FC<
-  UserProfileEventTileProps
-> = ({}: UserProfileEventTileProps) => {
-  // Implement your component logic here
-
+const UserProfileEventTile: React.FC<UserProfileEventTileProps> = ({
+  user,
+}: UserProfileEventTileProps) => {
   return (
-    <View style={styles.userTile}>
-      <Text>User tile</Text>
+    <View style={styles.userTileContainer}>
+      <Image
+        style={styles.image}
+        source={{
+          uri: user.profileImage,
+        }}
+      />
+      <View style={styles.metadata}>
+        <Text style={styles.name}>{user.name}</Text>
+        <View style={styles.ratingContainer}>
+          <Text style={styles.rating}>{user.rating}</Text>
+          <StarIcon color={Colors2G.Accent} width={20} height={13} />
+        </View>
+      </View>
     </View>
   );
 };
@@ -20,7 +32,31 @@ const UserProfileEventTile: React.FC<
 export default UserProfileEventTile;
 
 const styles = StyleSheet.create({
-  userTile: {
+  userTileContainer: {
     marginVertical: 30,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  image: {
+    width: 45,
+    height: 45,
+    borderRadius: 20,
+  },
+  metadata: {
+    marginLeft: 10,
+    flexDirection: "column",
+    marginTop: 3,
+  },
+  name: {
+    fontWeight: "600",
+    fontSize: 15,
+  },
+  ratingContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  rating: {
+    fontSize: 13,
+    lineHeight: 25,
   },
 });
