@@ -1,9 +1,9 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
-import CalendarIcon from "../../../assets/OtherIcons/calendar-icon.svg";
-import LocationIcon from "../../../assets/OtherIcons/location-icon.svg";
-import ProfileIcon from "../../../assets/OtherIcons/profile-icon.svg";
-import { Colors } from "../../../assets/Constants/Colors";
+import CalendarIcon from "@icons/OtherIcons/calendar-icon.svg";
+import LocationIcon from "@icons/OtherIcons/location-icon.svg";
+import ProfileIcon from "@icons/OtherIcons/profile-icon.svg";
+import { Colors } from "@constants/Colors";
 
 type EventMetadataPanelProps = {
   date: string;

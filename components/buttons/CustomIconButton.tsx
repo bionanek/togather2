@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
-import LeftArrowIcon from "../../../assets/OtherIcons/left-arrow-icon.svg";
-import HeartIcon from "../../../assets/OtherIcons/heart-icon.svg";
-import { Colors } from "../../../assets/Constants/Colors";
-import CategoryBasketballIcon from "../../../assets/CategoryIcons/category-basketball-icon.svg";
+import LeftArrowIcon from "@icons/OtherIcons/left-arrow-icon.svg";
+import HeartIcon from "@icons/OtherIcons/heart-icon.svg";
+import { Colors } from "@constants/Colors";
+import CategoryBasketballIcon from "@icons/CategoryIcons/category-basketball-icon.svg";
 
 type ButtonIcons = "plus" | "left-arrow" | "heart" | "basketball";
 
@@ -11,8 +11,12 @@ type CustomButtonProps = {
   enabled?: boolean;
   labelText?: string;
   icon?: ButtonIcons;
+  iconColor?: string;
   shape?: "circle" | "square";
+  buttonColor?: string;
 };
+
+const DEFAULT_ICON_COLOR = "black";
 
 export function CustomIconButton({
   onPress,
@@ -20,15 +24,19 @@ export function CustomIconButton({
   icon,
   labelText,
   shape,
+  iconColor,
+  buttonColor,
 }: CustomButtonProps) {
   const getChosenIcon = (icon: ButtonIcons) => {
     switch (icon) {
       case "left-arrow":
-        return <LeftArrowIcon color={"black"} />;
+        return <LeftArrowIcon color={iconColor ?? DEFAULT_ICON_COLOR} />;
       case "heart":
-        return <HeartIcon color={"black"} />;
+        return <HeartIcon color={iconColor ?? DEFAULT_ICON_COLOR} />;
       default:
-        return <CategoryBasketballIcon color={Colors.Accent} />;
+        return (
+          <CategoryBasketballIcon color={iconColor ?? DEFAULT_ICON_COLOR} />
+        );
     }
   };
 
@@ -37,7 +45,10 @@ export function CustomIconButton({
       disabled={disabled}
       onPress={disabled ? undefined : onPress}
       underlayColor={Colors.DarkerAccentBackground}
-      style={styles.buttonContainer}
+      style={[
+        styles.buttonContainer,
+        buttonColor ? { backgroundColor: buttonColor } : null,
+      ]}
     >
       <View style={styles.buttonContentWrapper}>
         {icon ? getChosenIcon(icon) : null}

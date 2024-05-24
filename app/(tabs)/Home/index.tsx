@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Searchbar } from "react-native-paper";
 import { StyleSheet, Text, View } from "react-native";
 import { Link, Stack } from "expo-router";
-import UserGreetingHeader from "../../components/userGreetingHeader/UserGreetingHeader";
+import UserGreetingHeader from "../../../components/userGreetingHeader/UserGreetingHeader";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");

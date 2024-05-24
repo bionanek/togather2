@@ -1,4 +1,5 @@
 import { Stack } from "expo-router";
+import { useState } from "react";
 import {
   View,
   Text,
@@ -6,12 +7,21 @@ import {
   TouchableHighlight,
   ScrollView,
 } from "react-native";
-import { CustomIconButton } from "../components/buttons/CustomIconButton";
+import { CustomIconButton } from "../../components/buttons/CustomIconButton";
 
-import { Colors } from "../../assets/Constants/Colors";
+import { Colors } from "@constants/Colors";
 import EventMetadataPanel from "./components/EventMetadataPanel";
+import { Icon } from "@constants/Icons";
 
+// TODO: use @EventPageProps later, when implementing navigation and passing id from the list
+type EventPageProps = {
+  eventId: number;
+};
 export default function EventPage() {
+  const [isFavourite, setIsFavourite] = useState<boolean>(false);
+  const handleOnFavouritePress = () => {
+    setIsFavourite(!isFavourite);
+  };
   return (
     <ScrollView
       style={styles.pageContainer}
@@ -21,11 +31,12 @@ export default function EventPage() {
       <View style={styles.topBar}>
         <CustomIconButton
           onPress={() => console.log("pressed custom")}
-          icon="left-arrow"
+          icon={Icon.LeftArrow}
         />
         <CustomIconButton
           onPress={() => console.log("pressed custom")}
-          icon="basketball"
+          icon={Icon.Sport}
+          iconColor={Colors.Accent}
           labelText="Sport"
         />
         {/* TODO: implement MobX store for event categories and create a
@@ -33,8 +44,10 @@ export default function EventPage() {
          that would return icon and name,
         that would be then passed to the CustomIconButton in props */}
         <CustomIconButton
-          onPress={() => console.log("pressed custom")}
-          icon="heart"
+          onPress={handleOnFavouritePress}
+          icon={Icon.Heart}
+          iconColor={isFavourite ? "white" : "black"}
+          buttonColor={isFavourite ? Colors.Accent : Colors.AccentBackground}
         />
       </View>
       <View>

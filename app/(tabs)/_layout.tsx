@@ -1,10 +1,10 @@
 import { Tabs } from "expo-router";
-import HomePageIcon from "../../assets/NavigationIcons/home-page-icon.svg";
-import ExplorePageIcon from "../../assets/NavigationIcons/explore-page-icon.svg";
-import CreateEventPageIcon from "../../assets/NavigationIcons/create-event-page-icon.svg";
-import ProfilePageIcon from "../../assets/NavigationIcons/profile-page-icon.svg";
-import NotificationsPageIcon from "../../assets/NavigationIcons/notifications-page-icon.svg";
-import { Colors } from "../../assets/Constants/Colors";
+import HomePageIcon from "@icons/NavigationIcons/home-page-icon.svg";
+import ExplorePageIcon from "@icons/NavigationIcons/explore-page-icon.svg";
+import CreateEventPageIcon from "@icons/NavigationIcons/create-event-page-icon.svg";
+import ProfilePageIcon from "@icons/NavigationIcons/profile-page-icon.svg";
+import NotificationsPageIcon from "@icons/NavigationIcons/notifications-page-icon.svg";
+import { Colors } from "@constants/Colors";
 
 export default function TabsLayout() {
   const iconColor = (focused: boolean) => (focused ? Colors.Accent : "#F2F2F2");
