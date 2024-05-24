@@ -7,6 +7,9 @@ interface UserProfileEventTileProps {
   user: User;
 }
 
+/**
+ * Simple tile component that displays small circle user image, user name and user rating.
+ */
 const UserProfileEventTile: React.FC<UserProfileEventTileProps> = ({
   user,
 }: UserProfileEventTileProps) => {

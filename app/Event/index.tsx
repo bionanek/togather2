@@ -7,6 +7,7 @@ import CTAButton from "@event/components/CTAButton";
 import UserProfileEventTile from "@event/components/UserProfileEventTile";
 import EventLocation from "./components/EventLocation";
 import { StatusBar } from "expo-status-bar";
+import { User } from "@event/types/User";
 
 // TODO: use @EventPageProps later, when implementing navigation and passing id from the list
 type EventPageProps = {
@@ -26,6 +27,13 @@ const eventData: EventData = {
   noOfParticipants: 4,
   distanceFromUser: 12,
   date: "17.10",
+};
+
+const userData: User = {
+  name: "Amelia Kowalska",
+  profileImage:
+    "https://s3-alpha-sig.figma.com/img/30b9/40a6/27dca9d0eb5704ffc2fb2d5c8aa7909e?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MOwz7oi1cItoGTEUngIRX~yldVqlXOXve5Bh7ASUphoyshnacVMqi6nKvHcFpflB9rWvr~rn5~F0BhBTSI4lYNFZip1f~YJvEqi0LzfLSkngy6C1ro2ChtW-7onnTdD00ge6Qvzg4IxVuwfQ0kZoTtGUqfDBFXIL4UcNU60z7bwD4ORMxlap0eCncI8XEeO1HIYsCrfT-bZmJn2UKca7ZZMmaFwQ7RG1aJjCybuISINAcZPvamDuvdAGwo0MjpNlCKaxV8c2yzm4ReoUVpxp3De4q9bYzjZjKGAw2xvQoz1OkpfO1VPB6W1I3Qbq5sb5CHKTU6fMFMCGZy6zAghqzA__",
+  rating: 4.5,
 };
 
 export default function EventPage() {
@@ -58,14 +66,7 @@ export default function EventPage() {
           {eventData.title}
         </Text>
       </View>
-      <UserProfileEventTile
-        user={{
-          name: "Amelia Kowalska",
-          profileImage:
-            "https://s3-alpha-sig.figma.com/img/30b9/40a6/27dca9d0eb5704ffc2fb2d5c8aa7909e?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MOwz7oi1cItoGTEUngIRX~yldVqlXOXve5Bh7ASUphoyshnacVMqi6nKvHcFpflB9rWvr~rn5~F0BhBTSI4lYNFZip1f~YJvEqi0LzfLSkngy6C1ro2ChtW-7onnTdD00ge6Qvzg4IxVuwfQ0kZoTtGUqfDBFXIL4UcNU60z7bwD4ORMxlap0eCncI8XEeO1HIYsCrfT-bZmJn2UKca7ZZMmaFwQ7RG1aJjCybuISINAcZPvamDuvdAGwo0MjpNlCKaxV8c2yzm4ReoUVpxp3De4q9bYzjZjKGAw2xvQoz1OkpfO1VPB6W1I3Qbq5sb5CHKTU6fMFMCGZy6zAghqzA__",
-          rating: 4.5,
-        }}
-      />
+      <UserProfileEventTile user={userData} />
 
       <EventMetadataPanel
         date={eventData.date}
