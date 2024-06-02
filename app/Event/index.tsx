@@ -90,11 +90,11 @@ export default function EventPage() {
 }
 
 const styles = StyleSheet.create({
-  pageContainer: { marginHorizontal: 28 },
+  pageContainer: { marginHorizontal: 28, marginTop: 10 },
 
   eventTitle: {
     fontWeight: "600",
-    fontSize: 19,
+    fontSize: 21,
   },
 
   descriptionContainer: {
@@ -104,6 +104,8 @@ const styles = StyleSheet.create({
   },
   descriptionTitle: {
     fontWeight: "600",
+    fontSize: 20,
     marginBottom: 10,
+    fontFamily: "Figtree", // TODO: add this font
   },
 });
