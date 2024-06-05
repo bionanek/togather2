@@ -1,41 +1,44 @@
-import React, { useState } from "react";
-import { Searchbar } from "react-native-paper";
-import { StyleSheet, Text, View } from "react-native";
-import { Link, Stack } from "expo-router";
-import UserGreetingHeader from "../../../components/userGreetingHeader/UserGreetingHeader";
+import UserGreetingHeader from '../../../components/userGreetingHeader/UserGreetingHeader'
+import { Searchbar } from 'react-native-paper'
+import React, { useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { Link, Stack } from 'expo-router'
 
 export default function Home() {
-  const [searchQuery, setSearchQuery] = useState("");
+	const [searchQuery, setSearchQuery] = useState('')
 
-  return (
-    <View style={styles.pageContainer}>
-      <Stack.Screen options={{ headerShown: true, title: "Home" }} />
-      <View>
-        <Text>You wanna test navigating with route parameters? Aight!</Text>
-        <Text>
-          Pressie pressie them links below. Come on now mate! It's bloody fun,
-          innit!{" "}
-        </Text>
-        <Link href="/Profile/bobOne" style={{ fontWeight: "600" }}>
-          Go to user 'bobOne'
-        </Link>
-        <Link href="/Profile/bobTwo" style={{ fontWeight: "600" }}>
-          Go to user 'bobTwo'
-        </Link>
-      </View>
-      <UserGreetingHeader />
-      <Searchbar
-        placeholder="Search"
-        onChangeText={setSearchQuery}
-        value={searchQuery}
-      />
-    </View>
-  );
+	return (
+		<View style={styles.pageContainer}>
+			<Stack.Screen options={{ headerShown: true, title: 'Home' }} />
+			<View>
+				<Text>You wanna test navigating with route parameters? Aight!</Text>
+				<Text>Pressie pressie them links below. Come on now mate! It's bloody fun, innit! </Text>
+				<Link
+					href="/Profile/bobOne"
+					style={{ fontWeight: '600' }}
+				>
+					Go to user 'bobOne'
+				</Link>
+				<Link
+					href="/Profile/bobTwo"
+					style={{ fontWeight: '600' }}
+				>
+					Go to user 'bobTwo'
+				</Link>
+			</View>
+			<UserGreetingHeader />
+			<Searchbar
+				placeholder="Search"
+				onChangeText={setSearchQuery}
+				value={searchQuery}
+			/>
+		</View>
+	)
 }
 
 const styles = StyleSheet.create({
-  pageContainer: {
-    margin: 20,
-    flexDirection: "column",
-  },
-});
+	pageContainer: {
+		margin: 20,
+		flexDirection: 'column'
+	}
+})
