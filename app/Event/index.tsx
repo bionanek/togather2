@@ -1,14 +1,13 @@
+import EventLocation from './components/EventLocation'
 import CTAButton from '@event/components/CTAButton'
 import { EventMetadataPanel } from '@event/components/EventMetadataPanel'
 import { TopBar } from '@event/components/TopBar'
 import UserProfileEventTile from '@event/components/UserProfileEventTile'
 import { User } from '@event/types/User'
-import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import { useState } from 'react'
 import { Button, ScrollView, StyleSheet, Text, View } from 'react-native'
-
-import EventLocation from './components/EventLocation'
+import { Stack } from 'expo-router'
 
 // TODO: use @EventPageProps later, when implementing navigation and passing id from the list
 type EventPageProps = {
