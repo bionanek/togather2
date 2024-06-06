@@ -2,7 +2,7 @@ import { Colors2G } from '@constants/Colors'
 import CategoryBasketballIcon from '@icons/CategoryIcons/category-basketball-icon.svg'
 import HeartIcon from '@icons/OtherIcons/heart-icon.svg'
 import LeftArrowIcon from '@icons/OtherIcons/left-arrow-icon.svg'
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
+import { StyleSheet, Text, TextStyle, TouchableHighlight, View } from 'react-native'
 
 type ButtonIcons = 'plus' | 'left-arrow' | 'heart' | 'basketball'
 
@@ -45,6 +45,7 @@ export function CustomIconButton({
 		}
 	}
 
+  const buttonLabelStyles: TextStyle = { marginLeft: icon ? 5 : 0, fontWeight: '600' }
 	return (
 		<TouchableHighlight
 			disabled={disabled}
@@ -54,7 +55,7 @@ export function CustomIconButton({
 		>
 			<View style={styles.buttonContentWrapper}>
 				{icon ? getChosenIcon(icon) : null}
-				{labelText ? <Text style={{ marginLeft: icon ? 5 : 0, fontWeight: '600' }}>{labelText}</Text> : null}
+				{labelText ? <Text style={buttonLabelStyles}>{labelText}</Text> : null}
 			</View>
 		</TouchableHighlight>
 	)
@@ -68,5 +69,5 @@ const styles = StyleSheet.create({
 	},
 	buttonContentWrapper: {
 		flexDirection: 'row'
-	}
+	},
 })

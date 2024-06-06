@@ -11,6 +11,9 @@ type EventMetadataPanelProps = {
 	distance: number
 }
 
+const Divider = () => <View style={{width: 2, height: 35, backgroundColor: Colors2G.PlaceholderTransparent}} />
+
+
 export const EventMetadataPanel = ({ date, participants, distance }: EventMetadataPanelProps) => {
 	return (
 		<View style={styles.metadataRow}>
@@ -19,10 +22,13 @@ export const EventMetadataPanel = ({ date, participants, distance }: EventMetada
 				<CalendarIcon color={Colors2G.Placeholder} />
 				<Text style={styles.metadataItemText}>{date}</Text>
 			</View>
+      <Divider />
+
 			<View style={styles.metadataItem}>
 				<ProfileIcon color={Colors2G.Placeholder} />
 				<Text style={styles.metadataItemText}>{participants}</Text>
 			</View>
+      <Divider />
 			<View style={styles.metadataItem}>
 				<LocationIcon color={Colors2G.Placeholder} />
 				<Text style={styles.metadataItemText}>{distance} km</Text>
