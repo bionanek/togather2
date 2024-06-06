@@ -1,5 +1,4 @@
 import ProfilePageIcon from '@icons/NavigationIcons/profile-page-icon.svg'
-import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 export default function UserGreetingHeader() {

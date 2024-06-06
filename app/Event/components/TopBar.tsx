@@ -30,7 +30,7 @@ export const TopBar: React.FC<TopBarProps> = ({
 				icon={IconEnum.LeftArrow}
 			/>
 			<CustomIconButton
-				onPress={() => console.log('pressed custom')}
+				onPress={() => null}
 				icon={IconEnum.Sport}
 				iconColor={Colors2G.Accent}
 				labelText="Sport"

@@ -6,13 +6,13 @@ import UserProfileEventTile from '@event/components/UserProfileEventTile'
 import { User } from '@event/types/User'
 import { StatusBar } from 'expo-status-bar'
 import { useState } from 'react'
-import { Button, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import { Stack } from 'expo-router'
 
 // TODO: use @EventPageProps later, when implementing navigation and passing id from the list
-type EventPageProps = {
-	eventId: number
-}
+// type EventPageProps = {
+// 	eventId: number
+// }
 type EventData = {
 	title: string
 	description: string
@@ -43,9 +43,9 @@ export default function EventPage() {
 		setIsFavourite(!isFavourite)
 	}
 
-	const onBackPress = () => console.log('back pressed')
-	const onJoinPress = () => console.log('join press')
-	const onCheckoutParticipantsPress = () => console.log('checkout participants press')
+	const onBackPress = () => null
+	const onJoinPress = () => null
+	const onCheckoutParticipantsPress = () => null
 
 	return (
 		<ScrollView
@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
 		fontWeight: '600',
 		fontSize: 20,
 		marginBottom: 10,
-		fontFamily: 'Figtree' // TODO: add this font
+		// TODO: add this font
+		fontFamily: 'Figtree'
 	}
 })

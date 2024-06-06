@@ -2,7 +2,6 @@ import { Colors2G } from '@constants/Colors'
 import CalendarIcon from '@icons/OtherIcons/calendar-icon.svg'
 import LocationIcon from '@icons/OtherIcons/location-icon.svg'
 import ProfileIcon from '@icons/OtherIcons/profile-icon.svg'
-import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 type EventMetadataPanelProps = {
