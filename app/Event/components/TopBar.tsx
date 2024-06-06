@@ -1,15 +1,15 @@
-import { CustomIconButton } from "@components/buttons/CustomIconButton";
-import { StyleSheet, View } from "react-native";
-import { IconEnum } from "@constants/Icons";
-import { Colors2G } from "@constants/Colors";
+import { CustomIconButton } from '@components/buttons/CustomIconButton'
+import { Colors2G } from '@constants/Colors'
+import { IconEnum } from '@constants/Icons'
+import { StyleSheet, View } from 'react-native'
 
 type TopBarProps = {
-  eventCategory: string;
-  isFavourite: boolean;
-  onFavouritePress: () => void;
-  onBackButtonPress: () => void;
-  onCategoryButtonPress?: () => void;
-};
+	eventCategory: string
+	isFavourite: boolean
+	onFavouritePress: () => void
+	onBackButtonPress: () => void
+	onCategoryButtonPress?: () => void
+}
 
 /**
  * TopBar component for the EventPage.
@@ -18,40 +18,43 @@ type TopBarProps = {
  * @param {object} props - Component props
  */
 export const TopBar: React.FC<TopBarProps> = ({
-  eventCategory,
-  isFavourite,
-  onFavouritePress,
-  onBackButtonPress,
+	eventCategory,
+	isFavourite,
+	onFavouritePress,
+	onBackButtonPress
 }: TopBarProps) => {
-  return (
-    <View style={styles.topBar}>
-      <CustomIconButton onPress={onBackButtonPress} icon={IconEnum.LeftArrow} />
-      <CustomIconButton
-        onPress={() => console.log("pressed custom")}
-        icon={IconEnum.Sport}
-        iconColor={Colors2G.Accent}
-        labelText="Sport"
-      />
-      {/* TODO: implement MobX store for event categories and create a
+	return (
+		<View style={styles.topBar}>
+			<CustomIconButton
+				onPress={onBackButtonPress}
+				icon={IconEnum.LeftArrow}
+			/>
+			<CustomIconButton
+				onPress={() => console.log('pressed custom')}
+				icon={IconEnum.Sport}
+				iconColor={Colors2G.Accent}
+				labelText="Sport"
+			/>
+			{/* TODO: implement MobX store for event categories and create a
     useSelectedCategory hook or smth
      that would return icon and name,
     that would be then passed to the CustomIconButton in props */}
-      <CustomIconButton
-        onPress={onFavouritePress}
-        icon={IconEnum.Heart}
-        iconColor={isFavourite ? "white" : "black"}
-        buttonColor={isFavourite ? Colors2G.Accent : Colors2G.AccentBackground}
-      />
-    </View>
-  );
-};
+			<CustomIconButton
+				onPress={onFavouritePress}
+				icon={IconEnum.Heart}
+				iconColor={isFavourite ? 'white' : 'black'}
+				buttonColor={isFavourite ? Colors2G.Accent : Colors2G.AccentBackground}
+			/>
+		</View>
+	)
+}
 
 const styles = StyleSheet.create({
-  topBar: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: 50,
-    marginBottom: 20,
-  },
-});
+	topBar: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		marginTop: 50,
+		marginBottom: 20
+	}
+})
