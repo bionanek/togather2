@@ -34,14 +34,15 @@ export function CustomIconButton({
 	iconColor,
 	buttonColor
 }: CustomButtonProps) {
+  const color = iconColor ?? DEFAULT_ICON_COLOR
 	const getChosenIcon = (icon: ButtonIcons) => {
 		switch (icon) {
 			case 'left-arrow':
-				return <LeftArrowIcon color={iconColor ?? DEFAULT_ICON_COLOR} />
+				return <LeftArrowIcon color={color} />
 			case 'heart':
-				return <HeartIcon color={iconColor ?? DEFAULT_ICON_COLOR} />
+				return <HeartIcon color={color} />
 			default:
-				return <CategoryBasketballIcon color={iconColor ?? DEFAULT_ICON_COLOR} />
+				return <CategoryBasketballIcon color={color} />
 		}
 	}
 
