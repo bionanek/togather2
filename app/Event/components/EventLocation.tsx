@@ -1,8 +1,7 @@
-import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 type EventLocationProps = {}
-const EventLocation: React.FC<EventLocationProps> = ({}: EventLocationProps) => {
+const EventLocation: React.FC<EventLocationProps> = () => {
 	return (
 		<View style={styles.locationContainer}>
 			<Text style={styles.locationTitle}>Location</Text>

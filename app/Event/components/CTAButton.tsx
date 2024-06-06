@@ -1,5 +1,4 @@
 import { Colors2G } from '@constants/Colors'
-import React from 'react'
 import { StyleSheet, Text, TouchableHighlight } from 'react-native'
 
 type ButtonConfig = {

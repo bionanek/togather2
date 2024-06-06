@@ -1,7 +1,3 @@
-// import { Redirect, Stack } from "expo-router";
-
-import React from 'react'
-import { View } from 'react-native'
 import { Redirect } from 'expo-router'
 
 export default function MainIndex() {

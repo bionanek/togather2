@@ -1,7 +1,6 @@
 import { Colors2G } from '@constants/Colors'
 import { User } from '@event/types/User'
 import StarIcon from '@icons/OtherIcons/star-icon.svg'
-import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 
 interface UserProfileEventTileProps {

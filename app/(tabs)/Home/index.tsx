@@ -1,6 +1,6 @@
 import UserGreetingHeader from '../../../components/userGreetingHeader/UserGreetingHeader'
 import { Searchbar } from 'react-native-paper'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Link, Stack } from 'expo-router'
 
