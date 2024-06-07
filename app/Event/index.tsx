@@ -1,9 +1,6 @@
-import EventLocation from './components/EventLocation'
-import CTAButton from '@event/components/CTAButton'
-import { EventMetadataPanel } from '@event/components/EventMetadataPanel'
+import { CTAButton, EventLocation, EventMetadataPanel, UserProfileEventTile } from '@event/components'
 import { TopBar } from '@event/components/TopBar'
-import UserProfileEventTile from '@event/components/UserProfileEventTile'
-import { User } from '@event/types/User'
+import { Event, User } from '@types'
 import { StatusBar } from 'expo-status-bar'
 import { useState } from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
@@ -13,14 +10,8 @@ import { Stack } from 'expo-router'
 // type EventPageProps = {
 // 	eventId: number
 // }
-type EventData = {
-	title: string
-	description: string
-	noOfParticipants: number
-	distanceFromUser: number
-	date: string
-}
-const eventData: EventData = {
+
+const eventData: Event = {
 	title: 'Just chilling with bunch of randoms for fun',
 	description:
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut suscipit ante, in posuere lorem. Pellentesque pellentesque metus velit, a rhoncus enim varius vitae. Pellentesque a feugiat tortor. Phasellus ornare nisi sada, porta justo ac, faucibus ipsum. Nam tempor varius odio id tempor. Suspendisse potenti',

@@ -1,4 +1,4 @@
-import { Colors2G } from '@constants/Colors'
+import { Colors } from '@constants'
 import CreateEventPageIcon from '@icons/NavigationIcons/create-event-page-icon.svg'
 import ExplorePageIcon from '@icons/NavigationIcons/explore-page-icon.svg'
 import HomePageIcon from '@icons/NavigationIcons/home-page-icon.svg'
@@ -7,7 +7,7 @@ import ProfilePageIcon from '@icons/NavigationIcons/profile-page-icon.svg'
 import { Tabs } from 'expo-router'
 
 export default function TabsLayout() {
-	const iconColor = (focused: boolean) => (focused ? Colors2G.Accent : '#F2F2F2')
+	const iconColor = (focused: boolean) => (focused ? Colors.Accent : '#F2F2F2')
 	return (
 		<Tabs
 			screenOptions={{

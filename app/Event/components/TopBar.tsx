@@ -1,6 +1,5 @@
-import { CustomIconButton } from '@components/buttons/CustomIconButton'
-import { Colors2G } from '@constants/Colors'
-import { IconEnum } from '@constants/Icons'
+import { CustomIconButton } from '@components'
+import { Colors } from '@constants'
 import { StyleSheet, View } from 'react-native'
 
 type TopBarProps = {
@@ -27,12 +26,12 @@ export const TopBar: React.FC<TopBarProps> = ({
 		<View style={styles.topBar}>
 			<CustomIconButton
 				onPress={onBackButtonPress}
-				icon={IconEnum.LeftArrow}
+				icon="left-arrow"
 			/>
 			<CustomIconButton
 				onPress={() => null}
-				icon={IconEnum.Sport}
-				iconColor={Colors2G.Accent}
+				icon="basketball"
+				iconColor={Colors.Accent}
 				labelText="Sport"
 			/>
 			{/* TODO: implement MobX store for event categories and create a
@@ -41,9 +40,9 @@ export const TopBar: React.FC<TopBarProps> = ({
     that would be then passed to the CustomIconButton in props */}
 			<CustomIconButton
 				onPress={onFavouritePress}
-				icon={IconEnum.Heart}
+				icon="heart"
 				iconColor={isFavourite ? 'white' : 'black'}
-				buttonColor={isFavourite ? Colors2G.Accent : Colors2G.AccentBackground}
+				buttonColor={isFavourite ? Colors.Accent : Colors.AccentBackground}
 			/>
 		</View>
 	)

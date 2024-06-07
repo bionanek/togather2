@@ -5,9 +5,10 @@
     "baseUrl": ".",
     "paths": {
       "@icons/*": ["assets/Icons/*"],
-      "@constants/*": ["constants/*"],
-      "@components/*": ["components/*"],
-      "@event/*": ["app/Event/*"]
+      "@constants": ["src/constants/index.ts"],
+      "@components": ["src/components/index.ts"],
+      "@event/*": ["app/Event/*"],
+			"@types": ["src/types/index.ts"]
     },
   },
   "include": [
