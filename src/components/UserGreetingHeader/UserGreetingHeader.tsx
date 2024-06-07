@@ -1,7 +1,7 @@
 import ProfilePageIcon from '@icons/NavigationIcons/profile-page-icon.svg'
 import { StyleSheet, Text, View } from 'react-native'
 
-export default function UserGreetingHeader() {
+export function UserGreetingHeader() {
 	return (
 		<View style={styles.userContainer}>
 			<View style={styles.smallerUserContainer}>

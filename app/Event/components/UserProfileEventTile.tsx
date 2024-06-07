@@ -1,6 +1,7 @@
-import { Colors2G } from '@constants/Colors'
-import { User } from '@event/types/User'
+import { Colors } from '@constants'
 import StarIcon from '@icons/OtherIcons/star-icon.svg'
+import { User } from '@types'
+import { FC } from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 
 interface UserProfileEventTileProps {
@@ -10,7 +11,7 @@ interface UserProfileEventTileProps {
 /**
  * Simple tile component that displays small circle user image, user name and user rating.
  */
-const UserProfileEventTile: React.FC<UserProfileEventTileProps> = ({ user }: UserProfileEventTileProps) => {
+export const UserProfileEventTile: FC<UserProfileEventTileProps> = ({ user }: UserProfileEventTileProps) => {
 	return (
 		<View style={styles.userTileContainer}>
 			<Image
@@ -24,7 +25,7 @@ const UserProfileEventTile: React.FC<UserProfileEventTileProps> = ({ user }: Use
 				<View style={styles.ratingContainer}>
 					<Text style={styles.rating}>{user.rating}</Text>
 					<StarIcon
-						color={Colors2G.Accent}
+						color={Colors.Accent}
 						width={20}
 						height={13}
 					/>
@@ -33,8 +34,6 @@ const UserProfileEventTile: React.FC<UserProfileEventTileProps> = ({ user }: Use
 		</View>
 	)
 }
-
-export default UserProfileEventTile
 
 const styles = StyleSheet.create({
 	userTileContainer: {

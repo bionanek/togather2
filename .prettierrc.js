@@ -17,8 +17,3 @@ module.exports = {
 	plugins: ['@ianvs/prettier-plugin-sort-imports'],
 	importOrder: ['^react$', '^react-native$', '^expo-router$']
 }
-
-/*
-plugins: ['@ianvs/prettier-plugin-sort-imports'],
-importOrder: ['^react/(.*)$', '^react-native/(.*)$', '', '^expo/(.*)$', '', '^[.]']
-*/

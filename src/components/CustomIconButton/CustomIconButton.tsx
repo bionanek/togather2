@@ -1,10 +1,9 @@
-import { Colors2G } from '@constants/Colors'
+import { Colors } from '@constants'
 import CategoryBasketballIcon from '@icons/CategoryIcons/category-basketball-icon.svg'
 import HeartIcon from '@icons/OtherIcons/heart-icon.svg'
 import LeftArrowIcon from '@icons/OtherIcons/left-arrow-icon.svg'
+import { Icons } from '@types'
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
-
-type ButtonIcons = 'plus' | 'left-arrow' | 'heart' | 'basketball'
 
 type CustomButtonProps = {
 	onPress: () => void
@@ -12,7 +11,7 @@ type CustomButtonProps = {
 	labelText?: string
 
 	/** Name of the icon you want to use. See {@link ButtonIcons} */
-	icon?: ButtonIcons
+	icon?: Icons
 	iconColor?: string
 	shape?: 'circle' | 'square'
 	buttonColor?: string
@@ -34,7 +33,7 @@ export function CustomIconButton({
 	iconColor,
 	buttonColor
 }: CustomButtonProps) {
-	const getChosenIcon = (icon: ButtonIcons) => {
+	const getChosenIcon = (icon: Icons) => {
 		switch (icon) {
 			case 'left-arrow':
 				return <LeftArrowIcon color={iconColor ?? DEFAULT_ICON_COLOR} />
@@ -49,7 +48,7 @@ export function CustomIconButton({
 		<TouchableHighlight
 			disabled={disabled}
 			onPress={disabled ? undefined : onPress}
-			underlayColor={Colors2G.DarkerAccentBackground}
+			underlayColor={Colors.DarkerAccentBackground}
 			style={[styles.buttonContainer, buttonColor ? { backgroundColor: buttonColor } : null]}
 		>
 			<View style={styles.buttonContentWrapper}>
@@ -63,7 +62,7 @@ export function CustomIconButton({
 const styles = StyleSheet.create({
 	buttonContainer: {
 		borderRadius: 50,
-		backgroundColor: Colors2G.AccentBackground,
+		backgroundColor: Colors.AccentBackground,
 		padding: 15
 	},
 	buttonContentWrapper: {

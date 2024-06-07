@@ -1,4 +1,4 @@
-import UserGreetingHeader from '../../../components/userGreetingHeader/UserGreetingHeader'
+import { UserGreetingHeader } from '@components'
 import { Searchbar } from 'react-native-paper'
 import { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'

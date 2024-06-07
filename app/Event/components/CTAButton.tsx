@@ -1,4 +1,4 @@
-import { Colors2G } from '@constants/Colors'
+import { Colors } from '@constants'
 import { StyleSheet, Text, TouchableHighlight } from 'react-native'
 
 type ButtonConfig = {
@@ -16,12 +16,12 @@ const CTAButton: React.FC<Props> = ({ onPress, type }: Props) => {
 	const buttonConfig: ButtonConfig =
 		type === 'join'
 			? {
-					bgColor: Colors2G.Accent,
+					bgColor: Colors.Accent,
 					textColor: 'white',
 					callToAction: 'I want to join this event'
 				}
 			: {
-					bgColor: Colors2G.AccentBackground,
+					bgColor: Colors.AccentBackground,
 					textColor: 'black',
 					callToAction: 'Check out other participants'
 				}
@@ -35,14 +35,14 @@ const CTAButton: React.FC<Props> = ({ onPress, type }: Props) => {
 				}
 			]}
 			onPress={onPress}
-			underlayColor={Colors2G.DarkerAccent}
+			underlayColor={Colors.DarkerAccent}
 		>
 			<Text style={[styles.joinButtonText, { color: buttonConfig.textColor }]}>{buttonConfig.callToAction}</Text>
 		</TouchableHighlight>
 	)
 }
 
-export default CTAButton
+export { CTAButton }
 
 const styles = StyleSheet.create({
 	joinButtonContainer: {
